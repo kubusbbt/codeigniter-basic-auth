@@ -14,7 +14,7 @@ public $psr4 = [
 
 Add Users to `app/Config/Auth.php`
 
-Extends Auth class on `JwtAuth` or `SessionAuth`;
+Extends Auth class by `JwtAuth` or `SessionAuth`;
 
 
 In controller use
