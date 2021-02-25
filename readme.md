@@ -2,7 +2,7 @@
 
 Copy all filed to Your project directory
 
-Add this to app/Config/Autoload.php
+Add this to `app/Config/Autoload.php`
 
 ```php
 public $psr4 = [
@@ -12,9 +12,9 @@ public $psr4 = [
 ];
 ```
 
-Add Users to app/Config/Auth.php
+Add Users to `app/Config/Auth.php`
 
-Extends Auth class on JwtAuth or SessionAuth;
+Extends Auth class on `JwtAuth` or `SessionAuth`;
 
 
 In controller use
