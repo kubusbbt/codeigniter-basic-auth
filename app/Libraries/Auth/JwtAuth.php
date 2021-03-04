@@ -54,8 +54,10 @@ class JwtAuth extends Controller
 
     public function login()
     {
-        $login = $this->request->getPost('login');
-        $password = $this->request->getPost('password');
+        $request = $this->request->getJSON();
+
+        $login = $request->login;
+        $password = $request->password;
 
         $config = config('Auth');
         $users = $config->users;
@@ -65,6 +67,14 @@ class JwtAuth extends Controller
 
     private function loginWithToken($login, $password, $users)
     {
+        if( !isset($users[$login]) || !password_verify($password, $users[$login]) ){
+            $output = [
+                'status' => 401,
+                'message' => 'login or password is incorrect',
+            ];
+            return $this->response->setStatusCode(401)->setJSON($output);
+        }
+
         $key = config('Auth')->privateKey();
         $issue_date_claim = time();
         $not_before_claim = $issue_date_claim + 10;
