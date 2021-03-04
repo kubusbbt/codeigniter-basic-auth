@@ -1,7 +1,7 @@
 # Codeigniter basic auth #
 
 Install jwt package
-`composer require firebase/php-jwt`
+```composer require firebase/php-jwt```
 
 Copy all filed to Your project directory
 
